@@ -1,0 +1,339 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add  Scrollbar  */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  box-shadow: 0 0 7px #777 inset;
+  background-color: #ddd;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #246bfd6e;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #246bfd;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: #eeeeee17; */
+  background-color: #fefcfc;
+}
+
+/* Start to do list  */
+.container {
+  width: 70%;
+  margin: 60px auto;
+}
+
+.container .mainhead {
+  text-align: center;
+  margin: 0 auto 30px;
+  font-size: 28px;
+  color: #85898d;
+}
+
+.container form {
+  border-radius: 12px;
+  background-color: #eee;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%);
+}
+.container form input {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  font-size: 17px;
+  flex: 1;
+  transition: 0.4s;
+}
+.container form input:focus {
+  outline: none;
+}
+.container form input::placeholder {
+  transition: 0.4s;
+}
+.container form input:focus::placeholder {
+  opacity: 0;
+}
+
+.container form button {
+  border: none;
+  outline: none;
+  padding: 16px;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #246bfd;
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.container form button:hover {
+  box-shadow: 0 0 8px 1px #246bfd;
+}
+
+.container .tasks {
+  margin-top: 35px;
+  border-radius: 12px;
+  background-color: #eee;
+  padding: 25px;
+  min-height: 270px;
+  box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%);
+}
+
+.tasks .noavailabel {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.tasks .noavailabel img {
+  width: 100px;
+  height: 100px;
+  animation: noavailabel-img 2s infinite ease-in-out;
+}
+@keyframes noavailabel-img {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.tasks .noavailabel .notask {
+  font-size: 25px;
+  color: #85898d;
+  margin-top: 5px;
+}
+
+@media (width<=767px) {
+  .container {
+    width: 95%;
+  }
+  .container form {
+    padding: 15px;
+  }
+  .container form input {
+    font-size: 15px;
+  }
+
+  .container form button {
+    padding: 15px 8px;
+  }
+  .container .tasks {
+    padding: 15px;
+  }
+}
+
+.container .tasks .task {
+  border-radius: 6px;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+/*  */
+.tasks .task .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+/*  */
+.container .tasks .task:not(:first-of-type) {
+  margin-top: 25px;
+}
+
+.container .tasks .task h2 {
+  font-size: 20px;
+  color: #000000a1;
+  margin-top: 5px;
+}
+
+.container .task .iconetask {
+  position: relative;
+}
+
+.container .task .iconetask > i {
+  cursor: pointer;
+  padding: 9px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.container .task .iconetask > i:hover {
+  background-color: #fafafa;
+}
+
+.container .task .iconetask .btn-edit-delete {
+  position: absolute;
+  top: -55px;
+  left: -105px;
+  width: 145px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  z-index: 5;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.container .task .iconetask .visible {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.container .task .iconetask .btn-edit-delete .edit,
+.container .task .iconetask .btn-edit-delete .delete {
+  color: #000000a1;
+  font-size: 18px;
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.container .task .iconetask .btn-edit-delete .edit:hover,
+.container .task .iconetask .btn-edit-delete .delete:hover {
+  transform: translateX(7px);
+}
+
+.container .task .iconetask .btn-edit-delete .edit i,
+.container .task .iconetask .btn-edit-delete .delete i {
+  color: #347bbb;
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+/* popup Update  */
+.container .popupUpdate .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #b1a7a766;
+  width: 100vw;
+  height: 100vh;
+  z-index: 14;
+  display: none;
+}
+
+.container .update {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 12px;
+  background-color: #eee;
+  padding: 20px;
+  z-index: 15;
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+  transition: all 0.4s ease-in-out;
+}
+
+/* event */
+.active .overlay {
+  display: block !important;
+}
+.active .update {
+  transition: all 0.4s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/*  */
+.container .update .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .update .title > h2 {
+  font-size: 25px;
+  color: #246bfd;
+}
+.container .update .title i {
+  color: #85898d;
+  cursor: pointer;
+  font-size: 23px;
+}
+.container .update .form {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.container .update input {
+  outline: none;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  font-size: 17px;
+  flex: 1;
+  transition: 0.4s;
+}
+.container .update input::placeholder {
+  transition: 0.4s;
+}
+.container .update input:focus::placeholder {
+  opacity: 0;
+}
+
+.container .update button {
+  border: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.container .update button:hover {
+  box-shadow: 0 0 6px 1px #f44336;
+}
+
+@media (width<=767px) {
+  .container .update {
+    width: 90%;
+    padding: 15px;
+  }
+  .container .form input {
+    font-size: 15px;
+  }
+
+  .container .form button {
+    padding: 15px 8px;
+  }
+}
+/*  */
+.tasks .task .date {
+  color: #000000a1;
+  font-size: 15px;
+  font-weight: bold;
+}
+/*  */

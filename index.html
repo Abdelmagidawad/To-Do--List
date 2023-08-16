@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List App</title>
+    <link
+      rel="shortcut icon"
+      href="logoTask .png"
+      style="width: 30px; height: 30px"
+    />
+    <!-- fontawsome Library -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <!-- main file css  -->
+    <link rel="stylesheet" href="CSS/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Start popup Update -->
+      <div class="popupUpdate">
+        <div class="overlay"></div>
+        <div class="update">
+          <div class="title">
+            <h2>Update Task</h2>
+            <i class="fa-solid fa-xmark close"></i>
+          </div>
+          <div class="form">
+            <input type="text" name="update" />
+            <button type="button" class="save">Update Task</button>
+          </div>
+        </div>
+      </div>
+      <!-- End popup Update -->
+      <h1 class="mainhead">To-Do List Task</h1>
+      <form action="">
+        <input type="text" placeholder="Add New Task" name="task" required />
+        <button type="submit" class="add">Add Task</button>
+      </form>
+      <div class="tasks">
+        <div class="noavailabel">
+          <img src="notask.png" alt="photo-task" />
+          <h1 class="notask">There is no task</h1>
+        </div>
+
+        <!-- <div class="task">
+          <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
+          <div class="content">
+            <p class="date">August 16, 2023 at 2:40 AM</p>
+            <div class="iconetask">
+              <i class="fa-solid fa-ellipsis trebll"></i>
+              <div class="btn-edit-delete">
+                <div class="edit"><i class="fa-solid fa-pen"></i> Edit</div>
+                <div class="delete">
+                  <i class="fa-solid fa-trash"></i> Delete
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- Main File js  -->
+    <script type="module" src="toDo.js"></script>
+  </body>
+</html>
