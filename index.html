@@ -6,7 +6,7 @@
     <title>To Do List App</title>
     <link
       rel="shortcut icon"
-      href="logoTask .png"
+      href="Images/logoTask .png"
       style="width: 30px; height: 30px"
     />
     <!-- fontawsome Library -->
@@ -37,8 +37,16 @@
         <button type="submit" class="add">Add Task</button>
       </form>
       <div class="tasks">
+        <div class="delAll">
+          <i class="fa-solid fa-list"></i>
+          <button type="button" class="deleteAll">
+            <i class="fa-solid fa-trash"></i>
+            Remove All
+          </button>
+        </div>
+
         <div class="noavailabel">
-          <img src="notask.png" alt="photo-task" />
+          <img src="Images/notask.png" alt="photo-task" />
           <h1 class="notask">There is no task</h1>
         </div>
 
@@ -58,7 +66,16 @@
           </div>
         </div> -->
       </div>
+
+      <!-- Start Alert  -->
+      <div class="contentAlert">
+        <!-- <div class="alert">
+          <img src="alert.png" alt="imgAlert" />
+          <p>Please Add Task</p>
+        </div> -->
+      </div>
     </div>
+
     <!-- Main File js  -->
     <script type="module" src="toDo.js"></script>
   </body>
