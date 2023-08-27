@@ -30,7 +30,19 @@ function Alert(message) {
 }
 
 //#############
+// Mode Dark&light
+let mode = document.querySelector(".contentHead>i");
+mode.addEventListener("click", lightMode);
 
+mode.addEventListener("click", () => {
+  localStorage.setItem("mode", mode.classList.item(2));
+});
+
+if (localStorage.getItem("mode") === "light") {
+  lightMode();
+}
+
+// ############
 // Empty array to store the tasks
 let arrayOfTasks = [];
 
@@ -85,8 +97,8 @@ btnAdd.addEventListener("click", function (e) {
 // Delete Task Button
 containerTasks.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
-    let divTask = document.querySelector(".task");
-
+    let divTask =
+      e.target.parentElement.parentElement.parentElement.parentElement;
     // remove task from localStorage
     deleteTaskWith(divTask.getAttribute("task-id"));
 
@@ -116,15 +128,14 @@ containerTasks.addEventListener("click", (e) => {
 });
 
 // Update Task
+let taskIdUpdate;
 btnUpdate.addEventListener("click", () => {
   // update title task in page
-  document.querySelector(".task>h2").innerHTML = inputUpdate.value;
+  taskIdUpdate.firstElementChild.innerHTML = inputUpdate.value;
   closePopUp.click();
   // update title to localStorage
-  updateTask(
-    document.querySelector(".task").getAttribute("task-id"),
-    inputUpdate.value
-  );
+  updateTask(taskIdUpdate.getAttribute("task-id"), inputUpdate.value);
+
   Alert("Your Task Updated Successfully");
 });
 
@@ -209,11 +220,14 @@ function addElementsToPageForm(arrayOfTasks) {
       });
     });
     //test
-    btnEdit.addEventListener("click", () => {
+    btnEdit.addEventListener("click", (e) => {
       updatePopup.parentElement.classList.toggle("active");
       inputUpdate.value = head.innerHTML;
       inputUpdate.focus();
       popupEditDelete.classList.remove("visible");
+
+      taskIdUpdate =
+        e.target.parentElement.parentElement.parentElement.parentElement;
     });
 
     closePopUp.addEventListener("click", () => {
@@ -222,6 +236,22 @@ function addElementsToPageForm(arrayOfTasks) {
     overlayPopup.addEventListener("click", () => {
       closePopUp.click();
     });
+
+    // light mode
+    if (mode.classList.contains("light")) {
+      let arrElement = [
+        divTask,
+        head,
+        date,
+        treblleIcone,
+        popupEditDelete,
+        btnEdit,
+        iconEdit,
+        btnDelete,
+        iconDelete,
+      ];
+      taskMode(arrElement);
+    }
   });
 }
 
@@ -284,3 +314,62 @@ btnDeleteAll.addEventListener("click", () => {
 //   task.remove();
 // });
 // localStorage.clear();
+
+function lightMode() {
+  if (mode.classList.contains("dark")) {
+    mode.classList.add("fa-sun", "light");
+    mode.classList.remove("fa-moon", "dark");
+  } else {
+    mode.classList.add("fa-moon", "dark");
+    mode.classList.remove("fa-sun", "light");
+  }
+
+  document.body.classList.toggle("light");
+  document.querySelector(".contentHead").classList.toggle("light");
+  document.querySelector(".container form").classList.toggle("light");
+  document.querySelector(".container form input").classList.toggle("light");
+  document.querySelector(".container form button").classList.toggle("light");
+  containerTasks.classList.toggle("light");
+  document.querySelector(".tasks .delAll > i").classList.toggle("light");
+  document.querySelector(".tasks .delAll .deleteAll").classList.toggle("light");
+  document.querySelector(".noavailabel .notask").classList.toggle("light");
+
+  // loop
+  let tasks = document.querySelectorAll(".tasks .task");
+  tasks.forEach((task) => {
+    task.classList.toggle("light");
+    task.firstElementChild.classList.toggle("light");
+    task.lastElementChild.firstElementChild.classList.toggle("light");
+    task.lastElementChild.lastElementChild.firstElementChild.classList.toggle(
+      "light"
+    );
+    task.lastElementChild.lastElementChild.lastElementChild.classList.toggle(
+      "light"
+    );
+    task.lastElementChild.lastElementChild.lastElementChild.firstElementChild.classList.toggle(
+      "light"
+    );
+    task.lastElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.classList.toggle(
+      "light"
+    );
+    task.lastElementChild.lastElementChild.lastElementChild.lastElementChild.classList.toggle(
+      "light"
+    );
+    task.lastElementChild.lastElementChild.lastElementChild.lastElementChild.firstElementChild.classList.toggle(
+      "light"
+    );
+  });
+
+  overlayPopup.classList.toggle("light");
+  updatePopup.classList.toggle("light");
+  document.querySelector(".title > h2").classList.toggle("light");
+  closePopUp.classList.toggle("light");
+  inputUpdate.classList.toggle("light");
+  btnUpdate.classList.toggle("light");
+}
+
+function taskMode(arrElement) {
+  arrElement.forEach((task) => {
+    task.classList.toggle("light");
+  });
+}

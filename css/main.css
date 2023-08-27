@@ -17,7 +17,8 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-track {
   box-shadow: 0 0 7px #777 inset;
-  background-color: #ddd;
+  /* background-color: #ddd; */
+  background-color: transparent;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -34,6 +35,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   /* background-color: #fefcfc; */
   background-color: rgba(13, 17, 23, 0.69);
+  transition: all 0.4s ease-in-out;
+}
+
+body.light {
+  background-color: #fefcfc;
 }
 
 /* Start to do list  */
@@ -42,12 +48,46 @@ body {
   margin: 60px auto;
 }
 
-.container .mainhead {
-  text-align: center;
+.container .contentHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 auto 30px;
-  font-size: 28px;
+  padding: 0px 20px;
   /* color: #85898d; */
   color: #e9e9e9;
+  transition: all 0.4s ease-in-out;
+}
+/*  */
+.container .contentHead.light {
+  color: #85898d;
+}
+
+/*  */
+.container .contentHead .mainhead {
+  font-size: 28px;
+}
+
+.container .contentHead i {
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: 0 0 8px 2px #817878;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.container .contentHead i.light {
+  font-size: 16px;
+  box-shadow: 0 0 8px 4px #f1f1f1;
+  color: #85898de0;
+}
+.container .contentHead i.light:hover {
+  box-shadow: 0 0 10px 4px #d5c8c869;
+}
+
+.container .contentHead i:hover {
+  box-shadow: 0 0 10px 4px #817878;
 }
 
 .container form {
@@ -59,7 +99,14 @@ body {
   align-items: center;
   /* box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%); */
   box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
+  transition: all 0.4s ease-in-out;
 }
+
+.container form.light {
+  background-color: #eee;
+  box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%);
+}
+
 .container form input {
   border-radius: 6px;
   /* border: 1px solid #ddd; */
@@ -68,9 +115,15 @@ body {
   padding: 15px;
   font-size: 18px;
   flex: 1;
-  transition: 0.4s;
   box-shadow: 0 0 8px 1px rgb(0 0 0 / 10%);
+  transition: all 0.4s ease-in-out;
 }
+.container form input.light {
+  border: 1px solid #ddd;
+  background-color: #fefcfc;
+  box-shadow: 0 0 5px 0px rgb(0 0 0 / 10%);
+}
+
 .container form input:focus {
   outline: none;
 }
@@ -98,6 +151,10 @@ body {
   box-shadow: 0 0 8px 2px #246bfd;
 }
 
+.container form button.light:hover {
+  box-shadow: 0 0 8px 1px #246bfd;
+}
+
 .container .tasks {
   margin-top: 35px;
   border-radius: 12px;
@@ -107,6 +164,11 @@ body {
   min-height: 270px;
   /* box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%); */
   box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
+  transition: all 0.4s ease-in-out;
+}
+.container .tasks.light {
+  background-color: #eee;
+  box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%);
 }
 
 /* Delete All */
@@ -124,8 +186,14 @@ body {
 .tasks .delAll > i {
   font-size: 30px;
   color: #e9e9e9;
+  /* color: #85898d; */
   opacity: 0;
   animation: delAnim 1.5s ease-in-out infinite;
+  transition: 0.4s;
+}
+.tasks .delAll > i.light {
+  color: #85898d;
+  /* color: #246bfd; */
 }
 
 @keyframes delAnim {
@@ -153,6 +221,15 @@ body {
 }
 .tasks .delAll .deleteAll:hover {
   box-shadow: 0 0 10px 6px rgb(0 0 0 / 10%);
+}
+
+.tasks .delAll .deleteAll.light {
+  color: #85898d;
+  /* color: #246bfd; */
+}
+
+.tasks .delAll .deleteAll.light:hover {
+  box-shadow: 0 0 8px 4px rgb(0 0 0 / 10%);
 }
 
 .tasks .delAll .deleteAll > i {
@@ -194,12 +271,22 @@ body {
   /* color: #85898d; */
   color: #e9e9e9;
   margin-top: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.tasks .noavailabel .notask.light {
+  color: #85898d;
 }
 
 @media (width<=767px) {
   .container {
     width: 95%;
   }
+
+  .container .contentHead {
+    padding: 0 10px;
+  }
+
   .container form {
     padding: 15px;
   }
@@ -224,7 +311,14 @@ body {
   padding-bottom: 7px;
   /* background-color: #ffffff; */
   background-color: #ededed;
+  transition: all 0.4s ease-in-out;
 }
+
+.container .tasks .task.light {
+  background-color: #fefcfc;
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+}
+
 .container .tasks .task.done {
   opacity: 0.6;
 }
@@ -246,6 +340,11 @@ body {
   /* color: #000000a1; */
   color: #202022;
   margin-top: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.container .tasks .task h2.light {
+  color: #000000a1;
 }
 
 .container .task .iconetask {
@@ -266,6 +365,10 @@ body {
   background-color: #dddddd91;
 }
 
+.container .task .iconetask > i.light:hover {
+  background-color: #f3f3f3;
+}
+
 .container .task .iconetask .btn-edit-delete {
   position: absolute;
   top: -55px;
@@ -281,8 +384,12 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.container .task .iconetask .btn-edit-delete.light {
+  background-color: #fefcfc;
+}
+
 .container .task .iconetask .visible {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
   transform: scale(1);
 }
 
@@ -295,6 +402,11 @@ body {
   cursor: pointer;
   transition: 0.4s;
 }
+
+.container .task .iconetask .btn-edit-delete .edit.light,
+.container .task .iconetask .btn-edit-delete .delete.light {
+  color: #000000a1;
+}
 .container .task .iconetask .btn-edit-delete .edit:hover,
 .container .task .iconetask .btn-edit-delete .delete:hover {
   transform: translateX(7px);
@@ -306,6 +418,12 @@ body {
   color: #6d6e70;
   font-size: 17px;
   margin-right: 10px;
+  transition: 0.4s ease-in-out;
+}
+
+.container .task .iconetask .btn-edit-delete .edit i.light,
+.container .task .iconetask .btn-edit-delete .delete i.light {
+  color: #347bbb;
 }
 
 /* popup Update  */
@@ -319,11 +437,17 @@ body {
   height: 100vh;
   z-index: 14;
   display: none;
+  transition: 0.4s ease-in-out;
+}
+
+.container .popupUpdate .overlay.light {
+  background-color: #b1a7a766;
 }
 
 .container .update {
   width: 60%;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
@@ -334,6 +458,11 @@ body {
   z-index: 15;
   box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
   transition: all 0.4s ease-in-out;
+}
+
+.container .update.light {
+  background-color: #eee;
+  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
 }
 
 /* event */
@@ -355,13 +484,25 @@ body {
   font-size: 25px;
   /* color: #246bfd; */
   color: #e9e9e9;
+  transition: 0.4s ease-in-out;
 }
+
+.container .update .title > h2.light {
+  color: #246bfd;
+}
+
 .container .update .title i {
   /* color: #85898d; */
   color: #246bfd;
   cursor: pointer;
   font-size: 23px;
+  transition: 0.4s ease-in-out;
 }
+
+.container .update .title i.light {
+  color: #85898d;
+}
+
 .container .update .form {
   display: flex;
   align-items: center;
@@ -378,6 +519,10 @@ body {
   flex: 1;
   transition: 0.4s;
 }
+.container .update input.light {
+  border: 1px solid #ddd;
+}
+
 .container .update input::placeholder {
   transition: 0.4s;
 }
@@ -398,6 +543,10 @@ body {
   color: white;
   cursor: pointer;
   transition: 0.4s;
+}
+
+.container .update button.light {
+  background-color: #f44336;
 }
 
 .container .update button:hover {
@@ -423,7 +572,13 @@ body {
   color: #202022;
   font-size: 15px;
   font-weight: bold;
+  transition: 0.4 ease-in-out;
 }
+
+.tasks .task .date.light {
+  color: #000000a1;
+}
+
 /*  */
 
 /* Start Alert */
@@ -451,8 +606,9 @@ body {
   padding-right: 40px;
   /*  */
   border-radius: 8px;
-  box-shadow: 0 0 8px 1px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
   position: relative;
+  border-left: 5px solid #246bfd;
   animation: animalert 0.5s ease-in-out;
 }
 /*  */
@@ -475,7 +631,8 @@ body {
 .alert::before {
   content: "";
   position: absolute;
-  left: 3px;
+  /* left: 3px; */
+  left: 0px;
   bottom: 0px;
   width: 100%;
   height: 3px;
