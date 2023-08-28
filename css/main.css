@@ -77,10 +77,11 @@ body.light {
   transition: 0.4s;
 }
 
+.container .contentHead i.dark {
+  font-size: 18px;
+}
 .container .contentHead i.light {
-  font-size: 16px;
   box-shadow: 0 0 8px 4px #f1f1f1;
-  color: #85898de0;
 }
 .container .contentHead i.light:hover {
   box-shadow: 0 0 10px 4px #d5c8c869;
@@ -653,4 +654,37 @@ body.light {
 .alert p {
   font-size: 18px;
   color: #000000a1;
+}
+
+/* Start Icone Scroll Top  */
+
+.UP {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #246bfdc4;
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 11px;
+  line-height: 40px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.4s ease-in-out;
+}
+
+.UP:hover {
+  background-color: #246bfd;
+  transform: translateY(-5px);
+}
+
+.UP.show {
+  opacity: 1;
+  z-index: 1;
 }

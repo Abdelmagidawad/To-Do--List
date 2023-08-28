@@ -317,11 +317,11 @@ btnDeleteAll.addEventListener("click", () => {
 
 function lightMode() {
   if (mode.classList.contains("dark")) {
-    mode.classList.add("fa-sun", "light");
-    mode.classList.remove("fa-moon", "dark");
+    mode.classList.add("fa-regular", "fa-moon", "light");
+    mode.classList.remove("fa-solid", "fa-sun", "dark");
   } else {
-    mode.classList.add("fa-moon", "dark");
-    mode.classList.remove("fa-sun", "light");
+    mode.classList.add("fa-solid", "fa-sun", "dark");
+    mode.classList.remove("fa-regular", "fa-moon", "light");
   }
 
   document.body.classList.toggle("light");
@@ -373,3 +373,18 @@ function taskMode(arrElement) {
     task.classList.toggle("light");
   });
 }
+
+// Scroll Top
+let iconScroll = document.querySelector(".UP");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= 260) {
+    iconScroll.classList.add("show");
+  } else {
+    iconScroll.classList.remove("show");
+  }
+});
+
+iconScroll.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
