@@ -14,6 +14,15 @@ let DelAllContent = document.querySelector(".delAll");
 let btnDeleteAll = document.querySelector(".deleteAll");
 let count = 0;
 
+// preload
+let preloadContent = document.querySelector(".preload");
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    preloadContent.classList.add("hidden");
+  }, 1700);
+});
+
 function Alert(message) {
   let alert = document.createElement("div");
   alert.classList.add("alert");
@@ -366,6 +375,8 @@ function lightMode() {
   closePopUp.classList.toggle("light");
   inputUpdate.classList.toggle("light");
   btnUpdate.classList.toggle("light");
+  //
+  preloadContent.classList.toggle("light");
 }
 
 function taskMode(arrElement) {
