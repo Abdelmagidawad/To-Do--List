@@ -1,3 +1,16 @@
+/* Global rules  */
+:root {
+  --main-transition: all 0.4s ease-in-out;
+  --boxShadow1: 0 0 8px 0px rgb(0 0 0 / 10%);
+  --boxShadow2: 0 0 8px 1px rgb(0 0 0 / 10%);
+  --main-color: #246bfd;
+  --dark-color: #e9e9e9;
+  --dark-colorT: #202022;
+  --light-color: #85898d;
+  --light-colorT: #000000a1;
+  --main-colorL: #fefcfc;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -12,7 +25,7 @@ html {
 
 /* Add  Scrollbar  */
 html::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 html::-webkit-scrollbar-track {
@@ -24,23 +37,24 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background-color: #246bfd6e;
   border-radius: 5px;
-  transition: 0.3s;
+  transition: var(--main-transition);
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background-color: #246bfd;
+  background-color: var(--main-color);
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  /* background-color: #fefcfc; */
   background-color: rgba(13, 17, 23, 0.69);
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 body.light {
-  background-color: #fefcfc;
+  background-color: var(--main-colorL);
 }
+
+/*End Global rules  */
 
 /* Start Preload  */
 .preload {
@@ -50,25 +64,24 @@ body.light {
   width: 100%;
   height: 100vh;
   background-color: #575a5e;
-  /* background-color: #333; */
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 .preload.hidden {
   display: none;
 }
 
 .preload.light {
-  background-color: #fefcfc;
+  background-color: var(--main-colorL);
 }
 
 .preload div {
   width: 20px;
   height: 20px;
-  background-color: #246bfd;
+  background-color: var(--main-color);
   border-radius: 50%;
   margin: 0 5px;
   transform: scale(0);
@@ -114,16 +127,14 @@ body.light {
   align-items: center;
   margin: 0 auto 30px;
   padding: 0px 20px;
-  /* color: #85898d; */
-  color: #e9e9e9;
-  transition: all 0.4s ease-in-out;
-}
-/*  */
-.container .contentHead.light {
-  color: #85898d;
+  color: var(--dark-color);
+  transition: var(--main-transition);
 }
 
-/*  */
+.container .contentHead.light {
+  color: var(--light-color);
+}
+
 .container .contentHead .mainhead {
   font-size: 28px;
 }
@@ -134,7 +145,7 @@ body.light {
   font-size: 20px;
   box-shadow: 0 0 8px 2px #817878;
   cursor: pointer;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 
 .container .contentHead i.dark {
@@ -153,14 +164,12 @@ body.light {
 
 .container form {
   border-radius: 12px;
-  /* background-color: #eee; */
   background-color: #6d6e70;
   padding: 25px;
   display: flex;
   align-items: center;
-  /* box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%); */
-  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
-  transition: all 0.4s ease-in-out;
+  box-shadow: var(--boxShadow1);
+  transition: var(--main-transition);
 }
 
 .container form.light {
@@ -170,18 +179,17 @@ body.light {
 
 .container form input {
   border-radius: 6px;
-  /* border: 1px solid #ddd; */
   border: 1px solid #d7d7d861;
   background-color: #ededed;
   padding: 15px;
   font-size: 18px;
   flex: 1;
-  box-shadow: 0 0 8px 1px rgb(0 0 0 / 10%);
-  transition: all 0.4s ease-in-out;
+  box-shadow: var(--boxShadow2);
+  transition: var(--main-transition);
 }
 .container form input.light {
   border: 1px solid #ddd;
-  background-color: #fefcfc;
+  background-color: var(--main-colorL);
   box-shadow: 0 0 5px 0px rgb(0 0 0 / 10%);
 }
 
@@ -189,7 +197,7 @@ body.light {
   outline: none;
 }
 .container form input::placeholder {
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 .container form input:focus::placeholder {
   opacity: 0;
@@ -202,30 +210,28 @@ body.light {
   border-radius: 6px;
   margin-left: 15px;
   font-weight: bold;
-  background-color: #246bfd;
+  background-color: var(--main-color);
   color: white;
   cursor: pointer;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 
 .container form button:hover {
-  box-shadow: 0 0 8px 2px #246bfd;
+  box-shadow: 0 0 8px 2px var(--main-color);
 }
 
 .container form button.light:hover {
-  box-shadow: 0 0 8px 1px #246bfd;
+  box-shadow: var(--boxShadow2);
 }
 
 .container .tasks {
   margin-top: 35px;
   border-radius: 12px;
-  /* background-color: #eee; */
   background-color: #6d6e70;
   padding: 25px;
   min-height: 270px;
-  /* box-shadow: 0 0 2px 0px rgb(0 0 0 / 10%); */
-  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
-  transition: all 0.4s ease-in-out;
+  box-shadow: var(--boxShadow1);
+  transition: var(--main-transition);
 }
 .container .tasks.light {
   background-color: #eee;
@@ -240,21 +246,19 @@ body.light {
 }
 
 .tasks .delAll.show {
-  transition: 0.4s;
+  transition: var(--main-transition);
   display: none;
 }
 
 .tasks .delAll > i {
   font-size: 30px;
-  color: #e9e9e9;
-  /* color: #85898d; */
+  color: var(--dark-color);
   opacity: 0;
   animation: delAnim 1.5s ease-in-out infinite;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 .tasks .delAll > i.light {
-  color: #85898d;
-  /* color: #246bfd; */
+  color: var(--light-color);
 }
 
 @keyframes delAnim {
@@ -271,22 +275,21 @@ body.light {
 .tasks .delAll .deleteAll {
   border: none;
   outline: none;
-  box-shadow: 0 0 8px 1px rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow2);
   background-color: transparent;
   font-size: 17px;
-  color: #e9e9e9;
+  color: var(--dark-color);
   padding: 10px 15px;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 .tasks .delAll .deleteAll:hover {
   box-shadow: 0 0 10px 6px rgb(0 0 0 / 10%);
 }
 
 .tasks .delAll .deleteAll.light {
-  color: #85898d;
-  /* color: #246bfd; */
+  color: var(--light-color);
 }
 
 .tasks .delAll .deleteAll.light:hover {
@@ -296,17 +299,16 @@ body.light {
 .tasks .delAll .deleteAll > i {
   margin-right: 5px;
 }
-/* ***** */
 
 .tasks .noavailabel {
   margin-top: 25px;
   text-align: center;
   display: block;
-  transition: 0.3s;
+  transition: var(--main-transition);
 }
 
 .tasks .noavailabel.show {
-  transition: 0.3s;
+  transition: var(--main-transition);
   display: none;
 }
 
@@ -329,14 +331,13 @@ body.light {
 
 .tasks .noavailabel .notask {
   font-size: 25px;
-  /* color: #85898d; */
-  color: #e9e9e9;
+  color: var(--dark-color);
   margin-top: 5px;
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .tasks .noavailabel .notask.light {
-  color: #85898d;
+  color: var(--light-color);
 }
 
 @media (width<=767px) {
@@ -366,46 +367,42 @@ body.light {
 
 .container .tasks .task {
   border-radius: 6px;
-  /* box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%); */
-  box-shadow: 0 0 8px 1px rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow2);
   padding: 15px;
   padding-bottom: 7px;
-  /* background-color: #ffffff; */
   background-color: #ededed;
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .tasks .task.light {
-  background-color: #fefcfc;
-  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  background-color: var(--main-colorL);
+  box-shadow: var(--boxShadow1);
 }
 
 .container .tasks .task.done {
   opacity: 0.6;
 }
 
-/*  */
 .tasks .task .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
 }
-/*  */
+
 .container .tasks .task:not(:first-of-type) {
   margin-top: 25px;
 }
 
 .container .tasks .task h2 {
   font-size: 20px;
-  /* color: #000000a1; */
-  color: #202022;
+  color: var(--dark-colorT);
   margin-top: 5px;
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .tasks .task h2.light {
-  color: #000000a1;
+  color: var(--light-colorT);
 }
 
 .container .task .iconetask {
@@ -417,12 +414,11 @@ body.light {
   padding: 9px;
   font-size: 20px;
   border-radius: 50%;
-  color: #202022;
+  color: var(--dark-colorT);
   transition: 0.3s;
 }
 
 .container .task .iconetask > i:hover {
-  /* background-color: #fafafa; */
   background-color: #dddddd91;
 }
 
@@ -436,37 +432,35 @@ body.light {
   left: -105px;
   width: 145px;
   padding: 5px;
-  /* background-color: #ffffff; */
   background-color: #ededed;
   border-radius: 6px;
-  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow1);
   z-index: 5;
   transform: scale(0);
   transition: all 0.3s ease-in-out;
 }
 
 .container .task .iconetask .btn-edit-delete.light {
-  background-color: #fefcfc;
+  background-color: var(--main-colorL);
 }
 
 .container .task .iconetask .visible {
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
   transform: scale(1);
 }
 
 .container .task .iconetask .btn-edit-delete .edit,
 .container .task .iconetask .btn-edit-delete .delete {
-  /* color: #000000a1; */
-  color: #202022;
+  color: var(--dark-colorT);
   font-size: 18px;
   margin: 15px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 
 .container .task .iconetask .btn-edit-delete .edit.light,
 .container .task .iconetask .btn-edit-delete .delete.light {
-  color: #000000a1;
+  color: var(--light-colorT);
 }
 .container .task .iconetask .btn-edit-delete .edit:hover,
 .container .task .iconetask .btn-edit-delete .delete:hover {
@@ -475,11 +469,10 @@ body.light {
 
 .container .task .iconetask .btn-edit-delete .edit i,
 .container .task .iconetask .btn-edit-delete .delete i {
-  /* color: #347bbb; */
   color: #6d6e70;
   font-size: 17px;
   margin-right: 10px;
-  transition: 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .task .iconetask .btn-edit-delete .edit i.light,
@@ -492,13 +485,12 @@ body.light {
   position: fixed;
   top: 0;
   left: 0;
-  /* background-color: #b1a7a766; */
   background-color: rgb(0, 0, 0, 0.6);
   width: 100vw;
   height: 100vh;
   z-index: 14;
   display: none;
-  transition: 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .popupUpdate .overlay.light {
@@ -513,17 +505,16 @@ body.light {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   border-radius: 12px;
-  /* background-color: #eee; */
   background-color: #6d6e70;
   padding: 20px;
   z-index: 15;
   box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .update.light {
   background-color: #eee;
-  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow1);
 }
 
 /* event */
@@ -531,10 +522,9 @@ body.light {
   display: block !important;
 }
 .active .update {
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
   transform: translate(-50%, -50%) scale(1);
 }
-
 /*  */
 .container .update .title {
   display: flex;
@@ -543,25 +533,23 @@ body.light {
 }
 .container .update .title > h2 {
   font-size: 25px;
-  /* color: #246bfd; */
-  color: #e9e9e9;
-  transition: 0.4s ease-in-out;
+  color: var(--dark-color);
+  transition: var(--main-transition);
 }
 
 .container .update .title > h2.light {
-  color: #246bfd;
+  color: var(--main-color);
 }
 
 .container .update .title i {
-  /* color: #85898d; */
-  color: #246bfd;
+  color: var(--main-color);
   cursor: pointer;
   font-size: 23px;
-  transition: 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .container .update .title i.light {
-  color: #85898d;
+  color: var(--light-color);
 }
 
 .container .update .form {
@@ -573,19 +561,18 @@ body.light {
 .container .update input {
   outline: none;
   border-radius: 6px;
-  /* border: 1px solid #ddd; */
   border: 1px solid #d7d7d861;
   padding: 15px;
   font-size: 18px;
   flex: 1;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 .container .update input.light {
   border: 1px solid #ddd;
 }
 
 .container .update input::placeholder {
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 .container .update input:focus::placeholder {
   opacity: 0;
@@ -594,16 +581,14 @@ body.light {
 .container .update button {
   border: none;
   outline: none;
-  /* padding: 15px; */
   padding: 17px 15px;
   border-radius: 6px;
   margin-left: 10px;
   font-weight: bold;
-  /* background-color: #f44336; */
   background-color: #ed1b2e;
   color: white;
   cursor: pointer;
-  transition: 0.4s;
+  transition: var(--main-transition);
 }
 
 .container .update button.light {
@@ -627,20 +612,17 @@ body.light {
     padding: 15px 8px;
   }
 }
-/*  */
+
 .tasks .task .date {
-  /* color: #000000a1; */
-  color: #202022;
+  color: var(--dark-colorT);
   font-size: 15px;
   font-weight: bold;
   transition: 0.4 ease-in-out;
 }
 
 .tasks .task .date.light {
-  color: #000000a1;
+  color: var(--light-colorT);
 }
-
-/*  */
 
 /* Start Alert */
 .container .contentAlert {
@@ -654,22 +636,17 @@ body.light {
 }
 .alert {
   /* width: 250px; */
-  /*  */
   width: fit-content;
-  /*  */
   display: flex;
   gap: 11px;
   align-items: center;
-  /* background-color: white; */
-  background-color: #fefcfc;
+  background-color: var(--main-colorL);
   padding: 15px;
-  /*  */
   padding-right: 40px;
-  /*  */
   border-radius: 8px;
-  box-shadow: 0 0 8px 0px rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow1);
   position: relative;
-  border-left: 5px solid #246bfd;
+  border-left: 5px solid var(--main-color);
   animation: animalert 0.5s ease-in-out;
 }
 /*  */
@@ -697,7 +674,7 @@ body.light {
   bottom: 0px;
   width: 100%;
   height: 3px;
-  background-color: #246bfd;
+  background-color: var(--main-color);
   animation: progress 3s linear forwards;
 }
 @keyframes progress {
@@ -713,7 +690,7 @@ body.light {
 }
 .alert p {
   font-size: 18px;
-  color: #000000a1;
+  color: var(--light-colorT);
 }
 
 /* Start Icone Scroll Top  */
@@ -726,7 +703,7 @@ body.light {
   height: 40px;
   border-radius: 50%;
   background-color: #246bfdc4;
-  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  box-shadow: var(--boxShadow1);
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -736,11 +713,11 @@ body.light {
   cursor: pointer;
   opacity: 0;
   z-index: -1;
-  transition: all 0.4s ease-in-out;
+  transition: var(--main-transition);
 }
 
 .UP:hover {
-  background-color: #246bfd;
+  background-color: var(--main-color);
   transform: translateY(-5px);
 }
 

@@ -38,7 +38,6 @@ function Alert(message) {
   }, 3000);
 }
 
-//#############
 // Mode Dark&light
 let mode = document.querySelector(".contentHead>i");
 mode.addEventListener("click", lightMode);
@@ -51,7 +50,6 @@ if (localStorage.getItem("mode") === "light") {
   lightMode();
 }
 
-// ############
 // Empty array to store the tasks
 let arrayOfTasks = [];
 
@@ -86,9 +84,7 @@ btnAdd.addEventListener("click", function (e) {
 
     addTaskToArray(inputTask.value, date.format());
 
-    //   ******************
     Alert("Your Task Added Successfully");
-    //   ******************
     //
     count++;
     window.localStorage.setItem("count", count);
@@ -114,9 +110,7 @@ containerTasks.addEventListener("click", (e) => {
     // remove task from page
     divTask.remove();
 
-    //   ******************
     Alert("Your Task Deleted Successfully");
-    //   ******************
     //
     count--;
     window.localStorage.setItem("count", count);
@@ -127,7 +121,7 @@ containerTasks.addEventListener("click", (e) => {
     //
   }
 
-  // Task Element
+  // Task Status
   if (e.target.classList.contains("task")) {
     // toggle completed task
     statusTaskWith(e.target.getAttribute("task-id"));
@@ -228,7 +222,7 @@ function addElementsToPageForm(arrayOfTasks) {
         }
       });
     });
-    //test
+
     btnEdit.addEventListener("click", (e) => {
       updatePopup.parentElement.classList.toggle("active");
       inputUpdate.value = head.innerHTML;
@@ -313,16 +307,9 @@ btnDeleteAll.addEventListener("click", () => {
   // Update
   arrayOfTasks = [];
   count = 0;
-  // *****************
-  Alert("Your Tasks Deleted Successfully");
-  // *****************
-});
 
-// Clear All
-// document.querySelectorAll(".task").forEach((task) => {
-//   task.remove();
-// });
-// localStorage.clear();
+  Alert("Your Tasks Deleted Successfully");
+});
 
 function lightMode() {
   if (mode.classList.contains("dark")) {
@@ -389,11 +376,8 @@ function taskMode(arrElement) {
 let iconScroll = document.querySelector(".UP");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY >= 260) {
-    iconScroll.classList.add("show");
-  } else {
-    iconScroll.classList.remove("show");
-  }
+  if (window.scrollY >= 260) iconScroll.classList.add("show");
+  else iconScroll.classList.remove("show");
 });
 
 iconScroll.addEventListener("click", () => {
