@@ -53,7 +53,14 @@ body {
 body.light {
   background-color: var(--main-colorL);
 }
-
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
 /*End Global rules  */
 
 /* Start Preload  */
@@ -119,6 +126,9 @@ body.light {
 .container {
   width: 70%;
   margin: 60px auto;
+  /*to particles js */
+  position: relative;
+  z-index: 1;
 }
 
 .container .contentHead {
@@ -626,7 +636,7 @@ body.light {
 
 /* Start Alert */
 .container .contentAlert {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -651,9 +661,14 @@ body.light {
 }
 /*  */
 @media (width<=767px) {
+  .container .contentAlert {
+    transform: translateX(-65%);
+  }
+
   .alert {
-    width: 130%;
+    width: 140%;
     padding-right: 0;
+    gap: 5px;
   }
 }
 /*  */
