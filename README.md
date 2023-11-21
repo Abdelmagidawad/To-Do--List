@@ -1,6 +1,6 @@
-# To-Do-ListApp
+# ToDo ListApp
 
-A To-Do List application that allows you to manage tasks, add timestamps, mark tasks as done, edit tasks, and delete tasks. It also offers a dark and light mode for a personalized user experience.
+A ToDo List application that allows you to manage tasks, add timestamps, mark tasks as done, edit tasks, and delete tasks. It also offers a dark and light mode for a personalized user experience.
 
 ## Features
 
@@ -11,10 +11,13 @@ A To-Do List application that allows you to manage tasks, add timestamps, mark t
 - Remove all tasks at once.
 -  Dark and light mode for personalized UI.
 
-  ##Technologies Used
+  ## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 
+## Link Demo
+
+https://abdelmagidawad.github.io/To-Do-ListApp/
   
