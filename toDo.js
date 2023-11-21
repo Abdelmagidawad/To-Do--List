@@ -133,13 +133,16 @@ containerTasks.addEventListener("click", (e) => {
 // Update Task
 let taskIdUpdate;
 btnUpdate.addEventListener("click", () => {
-  // update title task in page
-  taskIdUpdate.firstElementChild.innerHTML = inputUpdate.value;
+  if (taskIdUpdate.firstElementChild.innerHTML === inputUpdate.value) {
+    Alert("No Changes Made Task");
+  } else {
+    // update title task in page
+    taskIdUpdate.firstElementChild.innerHTML = inputUpdate.value;
+    // update title to localStorage
+    updateTask(taskIdUpdate.getAttribute("task-id"), inputUpdate.value);
+    Alert("Your Task Updated Successfully");
+  }
   closePopUp.click();
-  // update title to localStorage
-  updateTask(taskIdUpdate.getAttribute("task-id"), inputUpdate.value);
-
-  Alert("Your Task Updated Successfully");
 });
 
 function addTaskToArray(taskText, datte) {
