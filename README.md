@@ -16,8 +16,9 @@ A ToDo List application that allows you to manage tasks, add timestamps, mark ta
 - HTML
 - CSS
 - JavaScript
+- Particles Library
 
 ## Link Demo
 
-https://abdelmagidawad.github.io/To-Do-ListApp/
+https://abdelmagidawad.github.io/ToDo-ListApp/
   
