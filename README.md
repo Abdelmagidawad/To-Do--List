@@ -1,6 +1,6 @@
-# To-Do-ListApp
+# ToDo ListApp
 
-A To-Do List application that allows you to manage tasks, add timestamps, mark tasks as done, edit tasks, and delete tasks. It also offers a dark and light mode for a personalized user experience.
+A ToDo List application that allows you to manage tasks, add timestamps, mark tasks as done, edit tasks, and delete tasks. It also offers a dark and light mode for a personalized user experience.
 
 ## Features
 
